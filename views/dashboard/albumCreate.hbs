@@ -6,11 +6,17 @@
     <label for="select-artist">artist</label>
     <select id="select-artist" name="artist" class="input">
         {{!-- YOUR CODE HERE --}}
+        {{#each artists}}
+        <option value = "{{_id}}">{{name}}</option>
+        {{/each}}
     </select>
 
     <label for="select-label">label</label>
     <select id="select-label" name="label" class="input">
         {{!-- YOUR CODE HERE --}}
+         {{#each labels}}
+        <option value = "{{_id}}">{{name}}</option>
+        {{/each}}
     </select>
 
     <label for="releaseDate" class="label">release date</label>

@@ -13,3 +13,5 @@ mongoose.connection.on("connected", () =>
 mongoose.connection.on("error", () =>
   console.log("nay db connection error :(")
 );
+
+module.exports = mongoose

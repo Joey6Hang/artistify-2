@@ -37,6 +37,10 @@ USAGE =>
 */
 
 hbs.registerHelper("compare", function(lvalue, rvalue, options) {
+
+  console.log("lvalue, rvalue");
+  console.log(lvalue, rvalue);
+
   if (arguments.length < 3)
     throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
 
@@ -74,7 +78,7 @@ hbs.registerHelper("compare", function(lvalue, rvalue, options) {
       "Handlerbars Helper 'compare' doesn't know the operator " + operator
     );
 
-  var result = operators[operator](lvalue, rvalue);
+  var result = operators[operator](lvalue.toString(), rvalue.toString());
 
   if (result) {
     return options.fn(this);

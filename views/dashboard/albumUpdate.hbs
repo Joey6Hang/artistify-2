@@ -1,0 +1,50 @@
+<form method="post" action="/dashboard/album/update/{{album._id}}" class="form" enctype="multipart/form-data">
+    <h1 class="title">update album</h1>
+    <label for="title" class="label">title</label>
+    <input class="input" type="text" id="title" name="title" value="{{album.title}}">
+
+
+    <label for="select-artist">artist</label>
+    <select id="select-artist" name="artist" class="input">
+        {{!-- YOUR CODE HERE --}}
+ {{#each artists}}
+       
+        {{#compare _id ../album.artist._id operator="==="}}
+        <option value="{{_id}}" selected>{{name}}</option>
+        {{/compare}}
+        {{#compare _id ../album.artist._id operator="!="}}
+               <option value="{{_id}}">{{name}}</option>
+        {{/compare}}
+
+        {{/each}}
+       
+    </select>
+
+    <label for="select-label">label</label>
+    <select id="select-label" name="label" class="input">
+        {{!-- YOUR CODE HERE --}}
+     {{#each labels}}
+       
+        {{#compare _id ../album.label._id operator="==="}}
+        <option value="{{_id}}" selected>{{name}}</option>
+        {{/compare}}
+        {{#compare _id ../album.label._id operator="!="}}
+               <option value="{{_id}}">{{name}}</option>
+        {{/compare}}
+
+        {{/each}}
+
+    </select>
+console.log({{album.releaseDate}})
+    <label for="releaseDate" class="label">release date</label>
+    <input class="input" type="date" id="releaseDate" name="releaseDate" value="{{#formatDate album.releaseDate}}" placeholder="{{album.releaseDate}}">
+
+    <label for="cover" class="label">
+        choose a cover
+        <i class="icon fas fa-cloud-upload-alt fa-2x"></i>
+    </label>
+    <input class="is-hidden" type="file" id="cover" name="cover" value ={{cover}}>
+
+
+    <button class="btn">update</button>
+</form>
